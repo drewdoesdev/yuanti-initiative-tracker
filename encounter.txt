@@ -1,0 +1,6 @@
+pc,Frodo
+pc,Sam
+pc,Strider
+mon,NazgulA,3
+mon,NazgulB,3
+mon,NazgulC,3
