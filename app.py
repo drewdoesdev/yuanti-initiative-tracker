@@ -158,10 +158,11 @@ while isRunning == True:
 
     elif nextCommand[0] == 'k': #Kill
         commands = nextCommand.split(' ')
-        if len(commands) == 3:
+        if len(commands) == 2:
             initiative = adjustDeath(initiative, commands[1], True)
         else: 
             printError(1)
+            
             
     elif nextCommand[0] == 'r': #Resurect
         commands = nextCommand.split(' ')
