@@ -65,6 +65,9 @@ def printInitiative(initiative):
 
     print("\n\n")
 
+def printError(code):
+    if code == 1:
+        print("\nInvalid command.  enter 'h' for a list of commands.\n")
 
 def rollInitiative(mod, hasAdvantage):
     modifier = int(mod)
@@ -148,15 +151,26 @@ while isRunning == True:
             currentTurn += 1
     elif nextCommand[0] == 'd': #Damage
         commands = nextCommand.split(' ')
-        initiative = adjustHealth(initiative, commands[1], int(commands[2]))
+        if len(commands) == 3:
+            initiative = adjustHealth(initiative, commands[1], int(commands[2]))
+        else: 
+            printError(1)
+
     elif nextCommand[0] == 'k': #Kill
         commands = nextCommand.split(' ')
-        initiative = adjustDeath(initiative, commands[1], True)
+        if len(commands) == 3:
+            initiative = adjustDeath(initiative, commands[1], True)
+        else: 
+            printError(1)
+            
     elif nextCommand[0] == 'r': #Resurect
         commands = nextCommand.split(' ')
-        initiative = adjustDeath(initiative, commands[1], False)
+        if len(commands) == 3:
+            initiative = adjustDeath(initiative, commands[1], False)
+        else: 
+            printError(1)
     elif nextCommand == 'x':  #Exit
         isRunning = False
         printVictory()
     else:
-        print("\nInvalid command.  enter 'h' for a list of commands.\n")
+        printError(1)
